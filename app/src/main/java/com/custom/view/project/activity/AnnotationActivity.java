@@ -40,7 +40,9 @@ public class AnnotationActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()){
             case R.id.tv_annotation:
                 Log.d("---------Demo1.class.toString() = "+Demo1.class.toString());
+                // process("com.custom.view.project.annotation.Demo1");
                 process("com.custom.view.project.annotation.Demo1");
+
                 break;
             case R.id.tv_annotation1:
                 Log.d("---------Demo1.class = "+Demo1.class);
