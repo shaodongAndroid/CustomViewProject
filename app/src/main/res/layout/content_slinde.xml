@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_slinde"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.custom.view.project.activity.SlindeActivity"
+    tools:showIn="@layout/app_bar_slinde">
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:text="click"-->
+        <!--android:layout_marginTop="100dp"-->
+        <!--android:gravity="center"-->
+        <!--android:onClick="openMenu"/>-->
+<!--phone|email|map|-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|left"
+        android:layout_marginTop="100dp"
+        android:text="sdfsfs"
+        android:autoLink="phone|email|map|web"
+        android:layout_centerHorizontal="true"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="3dip"
+        android:textSize="16sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:id="@+id/et_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入"/>
+
+        <Button
+            android:id="@+id/btn_sure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="确定"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

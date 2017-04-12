@@ -1,0 +1,2 @@
+1. 实现对网页中超链接的拦截(比如如果是极客导航的主页，则直接拦截转到百度主页)：
+当点击页面中的链接后，会在WebView加载URL前回调 shouldOverrideUrlLoading(WebView view, String url) 方法，一般点击一个链接此方法调用一次。

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_retrofit"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.custom.view.project.activity.RetrofitActivity">
+
+    <Button
+        android:id="@+id/btn_get_data"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="获取数据"/>
+    <Button
+        android:id="@+id/btn_upload_data"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="上传数据"/>
+
+</LinearLayout>

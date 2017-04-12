@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.custom.view.project.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_mosaic"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_mosaic" />
+
+        <Button
+            android:id="@+id/btn_sticker"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_sticker" />
+
+        <Button
+            android:id="@+id/btn_flicker_progress"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_fliker" />
+
+        <Button
+            android:id="@+id/btn_launch_animation"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_launch_animation" />
+
+        <Button
+            android:id="@+id/btn_puzzle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_puzzle" />
+
+        <Button
+            android:id="@+id/btn_rule"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_rule"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_slide_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_slide_recycler"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btn_recycler_list_type"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_recycler_list_type"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btn_service"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_service" />
+
+        <!--<Button-->
+            <!--android:id="@+id/btn_intent_service"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:visibility="gone"-->
+            <!--android:text="@string/btn_intent_service" />-->
+
+        <Button
+            android:id="@+id/btn_webView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_web_view" />
+
+        <Button
+            android:id="@+id/btn_alipay"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_alipay" />
+
+        <Button
+            android:id="@+id/btn_ok_http"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_ok_http" />
+
+        <Button
+            android:id="@+id/btn_bitmap_shader"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_bitmap_shader" />
+
+        <Button
+            android:id="@+id/btn_retrofit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_retrofit" />
+        <Button
+            android:id="@+id/btn_rx_java"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_rx_java" />
+        <Button
+            android:id="@+id/btn_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_behavior" />
+        <Button
+            android:id="@+id/btn_cheeses"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_cheeses" />
+        <Button
+            android:id="@+id/btn_region"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_region" />
+        <Button
+            android:id="@+id/btn_annotation"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_annotation" />
+    </LinearLayout>
+</ScrollView>
