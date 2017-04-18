@@ -113,7 +113,9 @@
         <activity android:name=".activity.TouchEventActivity"/>
         <activity android:name=".activity.RegionActivity"/>
         <activity android:name=".activity.RxActivity"/>
-        <activity android:name=".activity.AnnotationActivity"></activity>
+        <activity android:name=".activity.AnnotationActivity"/>
+        <activity android:name=".activity.DesignActivity"/>
+        <activity android:name=".activity.BottomSheetActivity"></activity>
     </application>
 
 </manifest>

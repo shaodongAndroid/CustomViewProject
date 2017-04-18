@@ -18,6 +18,7 @@ import com.custom.view.project.activity.AnnotationActivity;
 import com.custom.view.project.activity.BehaviorActivity;
 import com.custom.view.project.activity.BitmapShaderActivity;
 import com.custom.view.project.activity.CheeseActivity;
+import com.custom.view.project.activity.DesignActivity;
 import com.custom.view.project.activity.HttpClientActivity;
 import com.custom.view.project.activity.MosaicActivity;
 import com.custom.view.project.activity.RegionActivity;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_sticker).setOnClickListener(this);
         findViewById(R.id.btn_flicker_progress).setOnClickListener(this);
         findViewById(R.id.btn_launch_animation).setOnClickListener(this);
+        findViewById(R.id.btn_design).setOnClickListener(this);
         findViewById(R.id.btn_puzzle).setOnClickListener(this);
         findViewById(R.id.btn_rule).setOnClickListener(this);
         findViewById(R.id.btn_slide_recycler).setOnClickListener(this);
@@ -73,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_rx_java).setOnClickListener(this);
         findViewById(R.id.btn_retrofit).setOnClickListener(this);
         findViewById(R.id.btn_behavior).setOnClickListener(this);
-        findViewById(R.id.btn_cheeses).setOnClickListener(this);
         findViewById(R.id.btn_region).setOnClickListener(this);
         findViewById(R.id.btn_annotation).setOnClickListener(this);
     }
@@ -96,6 +97,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_launch_animation:
                 intent = new Intent(this, LaunchAnimationActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_design:
+                intent = new Intent(this, DesignActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_puzzle:
@@ -151,10 +156,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(this, BehaviorActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_cheeses:
-                intent = new Intent(this, CheeseActivity.class);
-                startActivity(intent);
-                break;
+
             case R.id.btn_region:
                 intent = new Intent(this, RegionActivity.class);
                 startActivity(intent);

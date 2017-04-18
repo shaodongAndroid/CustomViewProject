@@ -2,17 +2,22 @@ package com.custom.view.project.activity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
+import android.widget.TextView;
 import com.custom.view.project.R;
 import com.custom.view.project.common.Course;
 import com.custom.view.project.common.UserInfo;
 import com.custom.view.project.util.Log;
 
+import io.reactivex.Scheduler;
+import io.reactivex.annotations.NonNull;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -48,6 +53,15 @@ public class RxActivity extends AppCompatActivity implements View.OnClickListene
     @BindView(R.id.iv_image)
     ImageView imageView;
 
+    @BindView(R.id.tv_code)
+    TextView tvCode ;
+
+    @BindView(R.id.btn_time)
+    Button btnGetCode ;
+
+    @BindView(R.id.btn_disposable)
+    Button btnDisposable ;
+
     CompositeDisposable mComDisposable ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +82,7 @@ public class RxActivity extends AppCompatActivity implements View.OnClickListene
         findViewById(R.id.btn_zip_1).setOnClickListener(this);
         findViewById(R.id.btn_flowable).setOnClickListener(this);
         findViewById(R.id.btn_time).setOnClickListener(this);
+        findViewById(R.id.btn_disposable).setOnClickListener(this);
     }
 
     @Override
@@ -100,11 +115,52 @@ public class RxActivity extends AppCompatActivity implements View.OnClickListene
             case R.id.btn_time:
                 useTime();
                 break;
+            case R.id.btn_disposable:
+                if(disposable != null){
+                    Log.d("------isDisposed = "+disposable.isDisposed());
+                    disposable.dispose();
+                }
+                break;
         }
     }
 
-
+    private Disposable disposable ;
     private void useTime() {
+        final int count = 20 ;
+        Observable.interval(0, 1, TimeUnit.SECONDS).take(count + 1).map(new Function<Long, Long>() {
+            @Override public Long apply(@NonNull Long aLong) throws Exception {
+                Log.d("--------aLong = "+aLong);
+                Log.d("----------currentThread 0 = "+Thread.currentThread());
+                return count - aLong;
+            }
+        }).observeOn(AndroidSchedulers.mainThread()).doOnSubscribe(new Consumer<Disposable>() {
+            @Override public void accept(@NonNull Disposable disposable) throws Exception {
+                Log.d("------------doOnSubscribe()");
+                // btnGetCode.setEnabled(false);
+                btnGetCode.setTextColor(Color.parseColor("#969696"));
+            }
+        }).subscribe(new Observer<Long>() {
+            @Override public void onSubscribe(Disposable d) {
+                disposable = d ;
+                Log.d("----------currentThread 1 = "+Thread.currentThread());
+                Log.d("----------onSubscribe() ");
+            }
+
+            @Override public void onNext(Long aLong) {
+                Log.d("--------onNext aLong = "+aLong);
+                tvCode.setText("剩余 "+aLong +"秒");
+            }
+
+            @Override public void onError(Throwable e) {
+
+            }
+
+            @Override public void onComplete() {
+                Log.d("------------onComplete()");
+                btnGetCode.setEnabled(true);
+                btnGetCode.setTextColor(Color.BLUE);
+            }
+        });
     }
 
     /**
@@ -476,7 +532,7 @@ public class RxActivity extends AppCompatActivity implements View.OnClickListene
         }).doOnSubscribe(new Consumer<Disposable>() {
             @Override
             public void accept(Disposable disposable) throws Exception {
-
+                Log.d("------------doOnSubscribe()");
             }
         }).doAfterNext(new Consumer<String>() {
             @Override
@@ -637,4 +693,12 @@ public class RxActivity extends AppCompatActivity implements View.OnClickListene
         return null ;
     }
 
+
+    @Override protected void onDestroy() {
+        super.onDestroy();
+        if(disposable != null){
+            Log.d("--------onDestroy()");
+            disposable.dispose();
+        }
+    }
 }

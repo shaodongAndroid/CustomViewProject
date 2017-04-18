@@ -66,5 +66,17 @@
         android:text="time"
         android:layout_marginTop="2dp"/>
 
+    <TextView
+        android:id="@+id/tv_code"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="00"
+        android:gravity="center"/>
 
+    <Button
+        android:id="@+id/btn_disposable"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="disposable"
+        android:layout_marginTop="2dp"/>
 </LinearLayout>

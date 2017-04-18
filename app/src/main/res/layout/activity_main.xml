@@ -36,9 +36,16 @@
             android:text="@string/btn_launch_animation" />
 
         <Button
+            android:id="@+id/btn_design"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="design" />
+
+        <Button
             android:id="@+id/btn_puzzle"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:visibility="gone"
             android:text="@string/btn_puzzle" />
 
         <Button
@@ -114,11 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="@string/btn_behavior" />
-        <Button
-            android:id="@+id/btn_cheeses"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="@string/btn_cheeses" />
+
         <Button
             android:id="@+id/btn_region"
             android:layout_width="match_parent"
