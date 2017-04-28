@@ -103,7 +103,7 @@
             android:theme="@style/Theme.DesignDemo"/>
         <activity
             android:name=".activity.CheeseDetailActivity"
-            android:theme="@style/Theme.DesignDemo"/>
+            android:theme="@style/Base.Theme.DesignDemo"/>
         <activity
             android:name=".activity.MosaicActivity"
             android:theme="@style/Theme.DesignDemo.black_background"/>
@@ -115,7 +115,8 @@
         <activity android:name=".activity.RxActivity"/>
         <activity android:name=".activity.AnnotationActivity"/>
         <activity android:name=".activity.DesignActivity"/>
-        <activity android:name=".activity.BottomSheetActivity"></activity>
+        <activity android:name=".activity.BottomSheetActivity"
+            android:theme="@style/Base.Theme.DesignDemo"></activity>
     </application>
 
 </manifest>

@@ -35,7 +35,8 @@ public class BitmapShaderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bitmap_shader);
-//        tvName.setText("ButterKnife");
+        ButterKnife.bind(this);
+        tvName.setText("ButterKnife");
         tvGender.setText(gender);
         tvAge.setText("22");
 
