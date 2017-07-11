@@ -153,9 +153,9 @@ public class BitmapUtil {
         decodeFile(file.getName(), options);
         options.inSampleSize = calculateScaleSize(options.outWidth, options.outHeight, reqWidth, reqHeight );
 
-        options.inJustDecodeBounds = true ;
+        options.inJustDecodeBounds = false ;
+        // options.inPreferredConfig = Bitmap.Config.RGB_565 ;
         bitmap = BitmapFactory.decodeFile(file.getName(), options);
-//        options.inPreferredConfig = Bitmap.Config.RGB_565 ;
 
         return bitmap ;
     }

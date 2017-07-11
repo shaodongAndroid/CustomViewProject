@@ -18,6 +18,12 @@
             android:text="@string/btn_mosaic" />
 
         <Button
+            android:id="@+id/btn_glide_pool"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_glide_pool" />
+
+        <Button
             android:id="@+id/btn_sticker"
             android:layout_width="match_parent"
             android:layout_height="40dp"

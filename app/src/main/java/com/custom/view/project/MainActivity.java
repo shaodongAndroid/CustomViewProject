@@ -4,10 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
-
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.ButterKnife;
@@ -17,8 +14,8 @@ import com.custom.view.project.Launch.LaunchAnimationActivity;
 import com.custom.view.project.activity.AnnotationActivity;
 import com.custom.view.project.activity.BehaviorActivity;
 import com.custom.view.project.activity.BitmapShaderActivity;
-import com.custom.view.project.activity.CheeseActivity;
 import com.custom.view.project.activity.DesignActivity;
+import com.custom.view.project.activity.GlideBitmapPoolActivity;
 import com.custom.view.project.activity.HttpClientActivity;
 import com.custom.view.project.activity.MosaicActivity;
 import com.custom.view.project.activity.RegionActivity;
@@ -34,7 +31,6 @@ import com.custom.view.project.service.ServiceActivity;
 import com.custom.view.project.sticker.StickerViewActivity;
 import com.custom.view.project.webview.WebViewActivity;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -77,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_behavior).setOnClickListener(this);
         findViewById(R.id.btn_region).setOnClickListener(this);
         findViewById(R.id.btn_annotation).setOnClickListener(this);
+        findViewById(R.id.btn_glide_pool).setOnClickListener(this);
     }
 
     @Override
@@ -85,6 +82,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.btn_mosaic:
                 intent = new Intent(this, MosaicActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_glide_pool:
+                intent = new Intent(this, GlideBitmapPoolActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_sticker:

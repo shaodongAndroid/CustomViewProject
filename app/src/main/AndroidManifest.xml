@@ -116,7 +116,8 @@
         <activity android:name=".activity.AnnotationActivity"/>
         <activity android:name=".activity.DesignActivity"/>
         <activity android:name=".activity.BottomSheetActivity"
-            android:theme="@style/Base.Theme.DesignDemo"></activity>
+        android:theme="@style/Base.Theme.DesignDemo"></activity>
+        <activity android:name=".activity.GlideBitmapPoolActivity"/>
     </application>
 
 </manifest>

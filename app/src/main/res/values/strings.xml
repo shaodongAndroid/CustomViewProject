@@ -20,6 +20,7 @@
     <string name="btn_behavior">behavior</string>
     <string name="btn_cheeses">cheese square</string>
     <string name="btn_mosaic">mosaic</string>
+    <string name="btn_glide_pool">glide_pool</string>
     <string name="btn_region">region</string>
     <string name="btn_annotation">annotation</string>
 

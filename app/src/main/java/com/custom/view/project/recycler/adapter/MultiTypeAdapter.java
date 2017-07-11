@@ -51,4 +51,8 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         return models.get(position).type(typeFactory);
     }
 
+
+    @Override public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView);
+    }
 }

@@ -12,6 +12,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary true
+
+        multiDexEnabled true
     }
 
     sourceSets {
@@ -23,9 +25,21 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "IP_ADDRESS", "\"https://11111.com\""
         }
+
+        debug{
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            versionNameSuffix '.debug'
+            debuggable true
+            buildConfigField "String", "IP_ADDRESS", "\"http://22222.38\""
+        }
+
         beta5 {
             signingConfig signingConfigs.debug
             applicationIdSuffix ".beta"
@@ -43,7 +57,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':viewserver')
-
     //集成leakcanary
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:cardview-v7:24.2.0'
@@ -53,11 +66,14 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.flying.xiaopo:poiphoto:0.4.2'
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.android.support:support-v4:24.2.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.0.7'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'de.hdodenhof:circleimageview:1.3.0'
     compile 'com.jakewharton:butterknife:8.4.0'

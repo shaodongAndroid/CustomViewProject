@@ -5,7 +5,6 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import butterknife.BindColor;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.custom.view.project.R;
@@ -19,8 +18,8 @@ import com.custom.view.project.network.IUserBiz;
 import com.custom.view.project.network.UserInfoService;
 import com.custom.view.project.util.Log;
 import com.custom.view.project.util.NetworkUtils;
-import com.custom.view.project.util.OkHttpUtils;
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -35,7 +34,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static java.lang.reflect.Proxy.newProxyInstance;
 
 public class RetrofitActivity extends AppCompatActivity {
 
@@ -47,9 +49,27 @@ public class RetrofitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
         ButterKnife.bind(this);
+        initData(UserInfoService.class);
+        // initData(UserInfo.class);
     }
 
-    @OnClick({R.id.btn_get_data, R.id.btn_upload_data, R.id.btn_get_by_path, R.id.btn_get_by_query})
+
+    private void initData(final Class<?> service) {
+
+        UserInfoService userInfoService = (UserInfoService) Proxy.newProxyInstance(service.getClassLoader(), new Class<?>[] { service },
+            new InvocationHandler() {
+                @Override public Object invoke(Object proxy, Method method, Object[] args)
+                    throws Throwable {
+                    Log.d("-----------getDeclaringClass = "+method.getDeclaringClass());
+                    Log.d("-----------Object.class = "+Object.class);
+                    return null;
+                }
+            });
+        userInfoService.getUser("");
+    }
+
+
+    @OnClick({R.id.btn_get_data, R.id.btn_upload_data}) // R.id.btn_get_by_path, R.id.btn_get_by_query
     public void onBtnClick(View view){
         switch (view.getId()){
             case R.id.btn_get:
@@ -80,9 +100,10 @@ public class RetrofitActivity extends AppCompatActivity {
         OkHttpClient okHttpClient = new OkHttpClient();
         Retrofit retrofit = new Retrofit.Builder()
             .callFactory(okHttpClient)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
 
-        Proxy.newProxyInstance(GetUserByPath.class.getClassLoader(),
+        newProxyInstance(GetUserByPath.class.getClassLoader(),
             new Class<?>[] { GetUserByPath.class }, new InvocationHandler() {
                 @Override public Object invoke(Object o, Method method, Object[] objects)
                     throws Throwable {
@@ -178,6 +199,7 @@ public class RetrofitActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
 
@@ -202,6 +224,11 @@ public class RetrofitActivity extends AppCompatActivity {
 
             }
         });
+        try {
+            users.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
